@@ -1,0 +1,65 @@
+name: "Add Content to Project Management Process Docs"
+description: "Request to add new content or updates to an existing program management process document."
+title: "[Process Doc Update]: README for OctoAcme Project Management Docs with links to all docs and project management processes summary"
+labels: ["documentation", "process improvement"]
+body:
+  - type: dropdown
+    id: process_doc
+    attributes:
+      label: "Which process document do you want to update? (If this is a new document, select '')"
+      description: "Select the program management process document you want to add content to. If this is a new process doc, choose ''."
+      options:
+        - octoacme-project-management-overview.md
+        - octoacme-project-initiation.md
+        - octoacme-project-planning.md
+        - octoacme-execution-and-tracking.md
+        - octoacme-risks-and-communication.md
+        - octoacme-release-and-deployment.md
+        - octoacme-retrospective-and-continuous-improvement.md
+        - octoacme-roles-and-personas.md
+        - "<new document>"
+    validations:
+      required: true
+
+  - type: textarea
+    id: content_summary
+    attributes:
+      label: "Summary of New Content"
+      description: "Briefly describe the new content or update you want to add."
+      placeholder: "E.g., Add clarification to risk escalation paths, new checklist for releases, additional role responsibilities, etc."
+      value: "Create a README.md file in the docs/ folder that serves as the entry point for all OctoAcme project management process documents. The README should include:\n\n1. **Overview**: A brief summary of the OctoAcme project management approach and key principles\n2. **Table of Contents**: Links to all existing process documents:\n   - OctoAcme Project Management Overview\n   - OctoAcme Project Initiation Guide\n   - OctoAcme Project Planning\n   - OctoAcme Execution & Tracking\n   - OctoAcme Risk Management & Communication\n   - OctoAcme Release & Deployment Guide\n   - OctoAcme Retrospective & Continuous Improvement\n   - OctoAcme Roles and Personas\n3. **Quick Reference**: A project lifecycle diagram or summary showing the flow from initiation through closure\n4. **Getting Started**: Guidance on which document to read first based on role or project phase"
+    validations:
+      required: true
+
+  - type: textarea
+    id: rationale
+    attributes:
+      label: "Why is this update needed?"
+      description: "Explain the reason for this addition. Is it to address a gap, improve clarity, incorporate a best practice, etc.?"
+      placeholder: "E.g., Identified gap in process, team feedback, alignment with industry standards, etc."
+      value: "Currently, the process documents exist as separate files in docs/ but there is no centralized entry point or navigation guide. A README would:\n\n- Improve discoverability and ease of navigation for new team members\n- Provide a quick overview of the entire OctoAcme project management framework\n- Establish a single source of truth for project management process documentation\n- Support the purpose of centralizing scattered project management knowledge in Copilot Spaces\n- Help team members understand which process document to consult based on their current project phase or role"
+    validations:
+      required: true
+
+  - type: textarea
+    id: example_content
+    attributes:
+      label: "Suggested Content (optional)"
+      description: "Paste the proposed new text, checklist, diagram, or example content you'd like to add. (Optional)"
+      placeholder: "E.g., - New checklist items, - Copy for a new section, - Example scenario, etc."
+      value: "# OctoAcme Project Management Documentation\n\n## Overview\n\nOctoAcme follows a structured, iterative project management approach designed to deliver customer value efficiently while maintaining clear communication, risk management, and continuous improvement. Our framework emphasizes psychological safety, data-informed decisions, and transparent ownership.\n\n## Core Principles\n- **Customer-first**: Prioritize customer value and usability\n- **Iterative delivery**: Deliver small, testable increments\n- **Clear ownership**: Each project has a named Project Manager (PM) and Product Lead\n- **Data-informed decisions**: Measure impact and iterate based on evidence\n- **Psychological safety**: Encourage feedback and learning\n\n## Process Documents\n\n### Getting Started\n- **[OctoAcme Project Management Overview](octoacme-project-management-overview.md)** — Start here for a concise introduction to roles, key artifacts, and the project lifecycle\n\n### Project Phases\n1. **Initiation Phase**\n   - [OctoAcme Project Initiation Guide](octoacme-project-initiation.md) — Define business need, identify stakeholders, and make a go/no-go decision\n\n2. **Planning Phase**\n   - [OctoAcme Project Planning](octoacme-project-planning.md) — Break work into shippable increments, identify dependencies, and create a release plan\n\n3. **Execution Phase**\n   - [OctoAcme Execution & Tracking](octoacme-execution-and-tracking.md) — Manage day-to-day delivery, track progress toward milestones, and escalate blockers\n   - [OctoAcme Risk Management & Communication](octoacme-risks-and-communication.md) — Identify, manage, and communicate risks and dependencies\n\n4. **Release Phase**\n   - [OctoAcme Release & Deployment Guide](octoacme-release-and-deployment.md) — Standardize releases, manage deployment windows, and plan rollback strategies\n\n5. **Closing & Improvement Phase**\n   - [OctoAcme Retrospective & Continuous Improvement](octoacme-retrospective-and-continuous-improvement.md) — Capture learnings and convert them into actionable improvements\n\n### Reference\n- **[OctoAcme Personas](octoacme-roles-and-personas.md)** — Understand typical roles, responsibilities, and communication patterns\n\n## Project Lifecycle at a Glance\n\n```\nInitiation → Planning → Execution → Release → Retrospective\n     ↓          ↓          ↓         ↓            ↓\n  Validate   Break Down  Build &  Deploy &    Capture\n  & Align    & Plan      Test     Verify      Learnings\n```\n\n## How to Use These Documents\n\n**By Role:**\n- **Project Manager**: Start with Overview, then Initiation → Planning → Execution & Tracking → Release & Deployment\n- **Product Manager**: Review Project Management Overview, then focus on Initiation, Planning, and Risk Management & Communication\n- **Developer**: Review Roles & Personas, then Execution & Tracking for daily rhythms and quality standards\n- **New Team Member**: Read the Overview first, then the document(s) relevant to your current project phase\n\n**By Phase:**\n- Starting a new project? → See Project Initiation Guide\n- Planning work? → See Project Planning\n- In execution? → See Execution & Tracking, Risk Management & Communication\n- Preparing to release? → See Release & Deployment Guide\n- Finishing a project or milestone? → See Retrospective & Continuous Improvement\n\n## Key Contacts & Resources\n\n- For questions about these processes, contact your Project Manager or Product Lead\n- For process improvements, open an issue using the \"Add Content to Project Management Process Docs\" template\n- For role-specific questions, refer to [OctoAcme Personas](octoacme-roles-and-personas.md)"
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: acceptance_criteria
+    attributes:
+      label: "Acceptance Criteria"
+      description: "Check all that apply:"
+      options:
+        - label: "Content aligns with existing process docs"
+          required: true
+        - label: "Update improves clarity or closes a documented gap"
+          required: true
+        - label: "Proposed content has been reviewed with stakeholders (if needed)"
+          required: false
